@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Menu Item</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Menu Management</h1>
+        
+        <!-- Form for creating/editing menu items -->
+        <h2 id="formTitle">Create Menu Item</h2>
+        <form id="menuForm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" class="form-control" id="price" required>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Image URL</label>
+                <input type="url" class="form-control" id="image" required>
+            </div>
+            <!-- <div class="mb-3">
+                <label for="stars" class="form-label">Star Rating (1-5)</label>
+                <input type="number" class="form-control" id="stars" min="1" max="5" required>
+            </div> -->
+            <div class="mb-3">
+                <label class="form-label">Categories</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="เครื่องดื่ม และของหวาน" id="category1">
+                    <label class="form-check-label" for="category1">เครื่องดื่ม และของหวาน</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="อาหารประจำสัปดาห์" id="category2">
+                    <label class="form-check-label" for="category2">อาหารประจำสัปดาห์</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="อาหารซิคเนเจอร์" id="category4">
+                    <label class="form-check-label" for="category4">อาหารซิคเนเจอร์</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="tag" class="form-label">Tag</label>
+                <input type="text" class="form-control" id="tag" required>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submitBtn">Add Item</button>
+            <button type="button" class="btn btn-secondary" id="cancelBtn" style="display:none;">Cancel</button>
+        </form>
+
+        <!-- List of menu items -->
+        <h2 class="mt-5">Menu Items</h2>
+        <ul id="menuList" class="list-group">
+            <!-- Menu items will be dynamically added here -->
+        </ul>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        let editingId = null;
+
+        // Load initial data from menu.json
+        fetch('db/menu.json')
+            .then(response => response.json())
+            .then(data => {
+                if (!localStorage.getItem('menuItems')) {
+                    localStorage.setItem('menuItems', JSON.stringify(data));
+                }
+            });
+
+        function displayMenuItems() {
+            const menuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
+            const menuList = document.getElementById('menuList');
+            menuList.innerHTML = '';
+
+            menuItems.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.className = 'list-group-item d-flex justify-content-between align-items-center';
+                li.innerHTML = `
+                    <span>${item.name} - $${item.price}</span>
+                    <div>
+                        <button class="btn btn-sm btn-outline-primary edit-btn" data-id="${index}">
+                            <i class="bi bi-pencil"></i> Edit
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger delete-btn" data-id="${index}">
+                            <i class="bi bi-trash"></i> Delete
+                        </button>
+                    </div>
+                `;
+                menuList.appendChild(li);
+            });
+
+            // Add event listeners for edit and delete buttons
+            document.querySelectorAll('.edit-btn').forEach(btn => {
+                btn.addEventListener('click', editItem);
+            });
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', deleteItem);
+            });
+        }
+
+        function editItem(e) {
+            const id = e.target.closest('button').dataset.id;
+            const menuItems = JSON.parse(localStorage.getItem('menuItems'));
+            const item = menuItems[id];
+
+            // Fill form with item data
+            document.getElementById('name').value = item.name;
+            document.getElementById('price').value = item.price;
+            document.getElementById('image').value = item.image;
+            document.getElementById('stars').value = item.stars;
+            document.getElementById('tag').value = item.tag;
+            
+            // Check appropriate category checkboxes
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                cb.checked = item.categories.includes(cb.value);
+            });
+
+            // Change form state
+            document.getElementById('formTitle').textContent = 'Edit Menu Item';
+            document.getElementById('submitBtn').textContent = 'Update Item';
+            document.getElementById('cancelBtn').style.display = 'inline-block';
+            editingId = id;
+        }
+
+        function deleteItem(e) {
+            if (confirm('Are you sure you want to delete this item?')) {
+                const id = e.target.closest('button').dataset.id;
+                const menuItems = JSON.parse(localStorage.getItem('menuItems'));
+                menuItems.splice(id, 1);
+                localStorage.setItem('menuItems', JSON.stringify(menuItems));
+                displayMenuItems();
+            }
+        }
+
+        document.getElementById('menuForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const price = document.getElementById('price').value;
+            const image = document.getElementById('image').value;
+            const stars = document.getElementById('stars').value;
+            const tag = document.getElementById('tag').value;
+
+            const categories = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
+
+            const newItem = { 
+                name, 
+                price: parseFloat(price), 
+                image, 
+                stars: parseInt(stars),
+                categories,
+                tag
+            };
+
+            let menuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
+            
+            if (editingId !== null) {
+                menuItems[editingId] = newItem;
+                editingId = null;
+                document.getElementById('formTitle').textContent = 'Create Menu Item';
+                document.getElementById('submitBtn').textContent = 'Add Item';
+                document.getElementById('cancelBtn').style.display = 'none';
+            } else {
+                menuItems.push(newItem);
+            }
+
+            localStorage.setItem('menuItems', JSON.stringify(menuItems));
+            displayMenuItems();
+            this.reset();
+            alert('Menu item saved successfully!');
+        });
+
+        document.getElementById('cancelBtn').addEventListener('click', function() {
+            editingId = null;
+            document.getElementById('formTitle').textContent = 'Create Menu Item';
+            document.getElementById('submitBtn').textContent = 'Add Item';
+            this.style.display = 'none';
+            document.getElementById('menuForm').reset();
+        });
+
+        // Initial display of menu items
+        displayMenuItems();
+    </script>
+</body>
+</html>
