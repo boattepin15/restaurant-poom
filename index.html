@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>ร้านอาหารญวน</title>
+
+        <!-- เชื่อม css -->    
+                         
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="css/tooplate-crispy-kitchen.css" rel="stylesheet">
+            <!--  -->    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+        
+
+
+    </head>
+                     
+    <body>
+        
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <a class="navbar-brand" href="index.html">
+                    ร้านอาหารญวน
+                </a>
+
+                <div class="d-lg-none">
+                    <button type="button" class="custom-btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#BookingModal">Reservation</button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                                <a class="nav-link active" href="index.html">Home</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link" href="menu.html">Menu</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link" href="news.html">promotion</a>
+                            </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+
+        <main>
+                            <!-- ส่วนที่ 2 -->  
+            <section class="hero">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-5 col-12 m-auto">
+                            <div class="heroText">
+
+                                <h1 class="text-white mb-lg-5 mb-3">เมนูแนะนำจากทางร้าน</h1>
+
+                                <div class="c-reviews my-3 d-flex flex-wrap align-items-center">
+                                    <div class="d-flex flex-wrap align-items-center">
+                                        <h4 class="text-white mb-0 me-3"></h4>
+
+                                        <div class="reviews-stars">
+                                            
+                                        </div>
+                                    </div>
+
+                                    <p class="text-white w-100">
+                                </div>
+                            </div>
+                        </div>
+
+
+                                            <!-- แก้รูปภาพ -->  
+                        <div class="col-lg-7 col-12">
+                            <div id="carouselExampleCaptions" class="carousel carousel-fade hero-carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="carousel-image-wrap">
+                                            <img src="https://southeastasia.sac.or.th/backend/subj/fileupload/VN-FD-shutterstock_236802922.jpg" class="img-fluid carousel-image" alt="">
+                                        </div>
+                                        
+                                        <div class="carousel-caption">
+                                            <span class="text-white">
+                                                <i class="bi-geo-alt me-2"></i>
+                                                ร้านอาหารญวณไทย
+                                            </span>
+
+                                            <h4 class="hero-text">สะอาด อร่อย ราคาถูก</h4>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <div class="carousel-image-wrap">
+                                            <img src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/00/a0000461/img/basic/a0000461_main.jpg" class="img-fluid carousel-image" alt="">
+                                        </div>
+                                        
+                                        <div class="carousel-caption">
+                                            <div class="d-flex align-items-center">
+                                                <h4 class="hero-text">ปอเปี๊ยกสด</h4>
+
+                                                <span class="price-tag ms-4"> 89 Baht</span>
+                                            </div>
+
+                                            <div class="d-flex flex-wrap align-items-center">
+                                              
+
+                                                <div class="reviews-stars">
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                                  
+                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                                <!-- พื้นด่านหลัง -->  
+                       
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                                        <!-- วิดีโออาหารญวน -->  
+
+                <div class="video-wrap">
+                    <video autoplay="" loop="" muted="" class="custom-video" poster="">
+                        <source src="video/123.mp4" type="video/mp4">
+                        	
+                    	</video>
+                </div>
+
+                <div class="overlay"></div>
+            </section>
+
+            <section class="menu section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="text-center mb-lg-5 mb-4">อาหารซิคเนเจอร์</h2>
+                        </div>
+                        <div id="menuItems" class="row">
+                            <!-- Menu items will be dynamically inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+                                                    <!-- ข่าวสาร --> 
+            <section class="BgImage"></section>
+
+            <section class="news section-padding">
+                <div class="container">
+                    <div class="row">
+
+                        <h2 class="text-center mb-lg-5 mb-4">โปรโมชั่น &amp; ข่าวสาร</h2>
+
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="news-thumb mb-4">
+                                <a href="news-detail.html">
+                                    <img src="https://static.thairath.co.th/media/00_A5B2297790C1E480.jpg" class="img-fluid news-image" alt="">
+                                </a>
+                                
+                                <div class="news-text-info news-text-info-large">
+                                    <span class="category-tag bg-danger">ข่าว หรือ โปรโมชั่น</span>
+
+                                    <h5 class="news-title mt-2">
+                                        <a href="news-detail.html" class="news-title-link">ข้อความ</a>
+                                    </h5>
+                                </div>
+                            </div> 
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="news-thumb mb-4">
+                                <a href="news-detail.html">
+                                    <img src="https://static.thairath.co.th/media/00_A5B2297790C1E480.jpg" class="img-fluid news-image" alt="">
+                                </a>
+                                
+                                <div class="news-text-info news-text-info-large">
+                                    <span class="category-tag bg-danger">ข่าว หรือ โปรโมชั่น</span>
+
+                                    <h5 class="news-title mt-2">
+                                        <a href="news-detail.html" class="news-title-link">ข้อความ</a>
+                                    </h5>
+                                </div>
+                            </div> 
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <div class="news-thumb mb-lg-0 mb-lg-4 mb-0">
+                                <a href="news-detail.html">
+                                    <img src="https://static.thairath.co.th/media/00_A5B2297790C1E480.jpg" class="img-fluid news-image" alt="">
+                                </a>
+                                
+                                <div class="news-text-info">
+                                    <span class="category-tag bg-danger">ข่าว หรือ โปรโมชั่น</span>
+
+                                    <strong>8 April 2022</strong>
+
+                                    <h5 class="news-title mt-2">
+                                        <a href="news-detail.html" class="news-title-link">ข้อความ</a>
+                                    </h5>
+                                </div>
+                            </div> 
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <div class="news-thumb mb-lg-0 mb-lg-4 mb-2">
+                                <a href="news-detail.html">
+                                    <img src="https://static.thairath.co.th/media/00_A5B2297790C1E480.jpg" class="img-fluid news-image" alt="">
+                                </a>
+                                
+                                <div class="news-text-info">
+                                    <span class="category-tag bg-danger">ข่าว หรือ โปรโมชั่น</span>
+
+                                    <h5 class="news-title mt-2">
+                                        <a href="news-detail.html" class="news-title-link">ข้อความ</a>
+                                    </h5>
+                                </div>
+                            </div> 
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="news-thumb mb-4">
+                                <a href="news-detail.html">
+                                    <img src="https://static.thairath.co.th/media/00_A5B2297790C1E480.jpg" class="img-fluid news-image" alt="">
+                                </a>
+                                
+                                <div class="news-text-info">
+                                    <span class="category-tag bg-danger">ข่าว หรือ โปรโมชั่น</span>
+
+                                    <strong>30 April 2022</strong>
+
+                                    <h5 class="news-title mt-2">
+                                        <a href="news-detail.html" class="news-title-link">ข้อความ</a>
+                                    </h5>
+                                </div>
+                            </div> 
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </main>
+<!-- ข่าวสาร --> 
+        <footer class="site-footer section-padding">
+            
+            <div class="container">
+                
+                <div class="row">
+
+                    <div class="col-12">
+                        <h4 class="text-white mb-4 me-5">ร้านอาหารญวน</h4>
+                    </div>
+
+                    <div class="col-lg-4 col-md-7 col-xs-12 tooplate-mt30">
+                        <h6 class="text-white mb-lg-4 mb-3">ที่อยู่</h6>
+
+                        <p>323 ถนนเทพรักษ์ เเขวงท่าเเร้ง เขตบางเขน อยู่บนเส้นถนนตัดใหม่</p>
+
+                        <a href="https://www.google.com/maps?q=%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99+%E0%B8%8D%E0%B8%A7%E0%B8%99-%E0%B9%84%E0%B8%97%E0%B8%A2+%E0%B8%AA%E0%B8%B2%E0%B8%82%E0%B8%B2%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%A9%E0%B9%8C+%E0%B9%80%E0%B8%A5%E0%B8%82%E0%B8%97%E0%B8%B5%E0%B9%88+323+%E0%B8%96.+%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%A9%E0%B9%8C+%E0%B9%81%E0%B8%82%E0%B8%A7%E0%B8%87%E0%B8%97%E0%B9%88%E0%B8%B2%E0%B9%81%E0%B8%A3%E0%B9%89%E0%B8%87+%E0%B9%80%E0%B8%82%E0%B8%95%E0%B8%9A%E0%B8%B2%E0%B8%87%E0%B9%80%E0%B8%82%E0%B8%99+%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3+10220&ftid=0x311d7d99f9fa4ee7:0xe06d8711cf3141e9&entry=gps&lucs=,94208286,94224825,94227247,94227248,47071704,47069508,94218641,94203019,47084304,94208458,94208447&g_ep=CAISDTYuMTI3LjIuNzgxOTAYACDXggMqYyw5NDIwODI4Niw5NDIyNDgyNSw5NDIyNzI0Nyw5NDIyNzI0OCw0NzA3MTcwNCw0NzA2OTUwOCw5NDIxODY0MSw5NDIwMzAxOSw0NzA4NDMwNCw5NDIwODQ1OCw5NDIwODQ0N0ICVEg%3D&g_st=com.google.maps.preview.copy" class="custom-btn btn btn-dark mt-2">ตำเเหน่ง</a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-5 col-xs-12 tooplate-mt30">
+                        <h6 class="text-white mb-lg-4 mb-3">เวลาเปิด-ปิด</h6>
+
+                        <p class="mb-2">จันทร์ - ศุกร์</p>
+
+                        <p>10:00 AM - 08:00 PM</p>
+
+                        <p>Tel: <a href="tel: 02-789-66555" class="tel-link">02-789-66555</a></p>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-xs-12 tooplate-mt30">
+                        <h6 class="text-white mb-lg-4 mb-3">ติดตามข่าวสาร</h6>
+
+                        <ul class="social-icon">
+                            <li><a href="#" class="social-icon-link bi-facebook"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+
+                        
+                    </div>
+
+                </div>
+                
+
+        
+        <!-- เชื่อม JS -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/custom.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const menuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
+                const menuContainer = document.getElementById('menuItems');
+
+                const filtedSignatures = menuItems.filter(item => item.categories?.includes('อาหารซิคเนเจอร์'));
+
+                filtedSignatures.slice(0, 6).forEach(item => {
+                    const menuItemHtml = `
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="menu-thumb">
+                                <div class="menu-image-wrap">
+                                    <img src="${item.image}" class="img-fluid menu-image" alt="${item.name}">
+                                    <span class="menu-tag bg-warning">${item.tag}</span>
+                                </div>
+                                <div class="menu-info d-flex flex-wrap align-items-center">
+                                    <h4 class="mb-0">${item.name}</h4>
+                                    <span class="price-tag bg-white shadow-lg ms-4">${item.price} บาท</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    menuContainer.innerHTML += menuItemHtml;
+                });
+            });
+        </script>
+    </body>
+</html>
