@@ -114,7 +114,6 @@
             document.getElementById('name').value = item.name;
             document.getElementById('price').value = item.price;
             document.getElementById('image').value = item.image;
-            document.getElementById('stars').value = item.stars;
             document.getElementById('tag').value = item.tag;
             
             // Check appropriate category checkboxes
@@ -144,7 +143,6 @@
             const name = document.getElementById('name').value;
             const price = document.getElementById('price').value;
             const image = document.getElementById('image').value;
-            const stars = document.getElementById('stars').value;
             const tag = document.getElementById('tag').value;
 
             const categories = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
@@ -153,7 +151,6 @@
                 name, 
                 price: parseFloat(price), 
                 image, 
-                stars: parseInt(stars),
                 categories,
                 tag
             };
